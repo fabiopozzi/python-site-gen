@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div>
+    <!-- A wrapper for all the blog posts -->
+    <div class="posts">
+        <section class="post">
+            <div class="post-description">
+                <h1>Lista percorsi (molto incompleta)</h1>
+                <ul>
+                    {% for traccia in listaTracce %}
+                    <li><a class="nav-link pl-0 text-info" href="{{traccia.link}}">{{traccia.nome}}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </section>
+    </div>
+</div>
+{% endblock %}

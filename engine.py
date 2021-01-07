@@ -1,4 +1,4 @@
-import os, random, sys
+import json, os, random, sys
 from datetime import datetime
 from jinja2 import Environment, PackageLoader
 from markdown2 import markdown
@@ -72,6 +72,17 @@ def index(POSTS):
     index_path = 'output/index.html'
     write_to_file(index_path, html_content)
 
+def index_bici():
+    bici_template = env.get_template('index_bici.html')
+    # per ogni file nella directory track_data
+    track_dir = 'track_data/'
+
+    for track_file in os.listdir(track_dir):
+        track_path = os.path.join(track_dir, track_file)
+        with open(track_path, 'r') as f:
+            data = json.load(f)
+            print(data)
+    # fai il parsing del file json
 
 def main(sec):
     sections = ['articles']
@@ -84,4 +95,6 @@ def main(sec):
         else:
             print("This section does not exist")
 
+    # render index_bici
+    index_bici()
     # copy static files

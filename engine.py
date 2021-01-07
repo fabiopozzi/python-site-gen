@@ -76,15 +76,19 @@ def index_bici():
     bici_template = env.get_template('index_bici.html')
     # per ogni file nella directory track_data
     track_dir = 'track_data/'
-
+    lista_tracce = []
     for track_file in os.listdir(track_dir):
         track_path = os.path.join(track_dir, track_file)
         with open(track_path, 'r') as f:
             data = json.load(f)
-            print(data)
-    # fai il parsing del file json
+            lista_tracce.append(data)
+    html_content = bici_template.render(listaTracce=lista_tracce)
+    write_to_file('output/pages/bici.html', html_content)
 
 def main(sec):
+    # TODO: copy static files
+    # TODO: create directory structure
+    #
     sections = ['articles']
     for section in sections:
         POSTS = get_markdown_files()
@@ -95,6 +99,4 @@ def main(sec):
         else:
             print("This section does not exist")
 
-    # render index_bici
     index_bici()
-    # copy static files

@@ -1,4 +1,5 @@
 import json, os, random, sys
+from distutils.dir_util import copy_tree
 from datetime import datetime
 from jinja2 import Environment, PackageLoader
 from markdown2 import markdown
@@ -86,9 +87,13 @@ def index_bici():
     write_to_file('output/pages/bici.html', html_content)
 
 def main(sec):
-    # TODO: copy static files
-    # TODO: create directory structure
-    #
+    # copy static files
+    copy_tree('static/css', 'output/css')
+    copy_tree('static/img', 'output/img')
+
+    # create directory structure
+    create_directory('output/pages')
+
     sections = ['articles']
     for section in sections:
         POSTS = get_markdown_files()

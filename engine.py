@@ -16,8 +16,8 @@ def create_directory(path):
     if not os.path.exists(cartella):
         os.makedirs(cartella)
 
-def get_markdown_files():
-    POSTS = {}
+def get_markdown_posts():
+    posts = {}
 
     file_path = 'content/'
 
@@ -27,16 +27,16 @@ def get_markdown_files():
         # if it's not a directory, read it
         if not os.path.isdir(md_file_path):
             with open(md_file_path, 'r') as f:
-                POSTS[md_file] = markdown(f.read(), extras=['metadata'])
+                posts[md_file] = markdown(f.read(), extras=['metadata'])
 
-    return POSTS
+    return posts
 
 
-def articles(POSTS, post_template):
-    for post in POSTS:
-        post_metadata = POSTS[post].metadata
+def articles(posts, post_template):
+    for post in posts:
+        post_metadata = posts[post].metadata
         post_data = {
-            'content': POSTS[post],
+            'content': posts[post],
             'slug': post_metadata['slug'],
             'title': post_metadata['title'],
             'summary': post_metadata['summary'],
@@ -98,11 +98,11 @@ def main(sec):
 
     sections = ['articles']
     for section in sections:
-        POSTS = get_markdown_files()
-        if section == "articles":
-            posts_template = env.get_template('article.html')
-            index(POSTS)
-            articles(POSTS, posts_template)
+        if section == 'articles':
+            posts = get_markdown_posts()
+            post_template = env.get_template('article.html')
+            index(posts)
+            articles(posts, post_template)
         else:
             print("This section does not exist")
 

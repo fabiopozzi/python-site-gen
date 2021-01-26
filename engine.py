@@ -1,4 +1,4 @@
-import json, os, random, sys
+import json, os, random, shutil, sys
 from distutils.dir_util import copy_tree
 from datetime import datetime
 from jinja2 import Environment, PackageLoader
@@ -12,8 +12,9 @@ def write_to_file(path, content):
         f.write(content)
 
 def create_directory(path):
-    if not os.path.exists(path):
-        os.makedirs(os.path.dirname(path))
+    cartella = os.path.dirname(path)
+    if not os.path.exists(cartella):
+        os.makedirs(cartella)
 
 def get_markdown_files():
     POSTS = {}
@@ -90,6 +91,7 @@ def main(sec):
     # copy static files
     copy_tree('static/css', 'output/css')
     copy_tree('static/img', 'output/img')
+    shutil.copyfile('static/favicon.ico', 'output/favicon.ico')
 
     # create directory structure
     create_directory('output/pages')

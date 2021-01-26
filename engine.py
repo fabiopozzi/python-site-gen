@@ -11,14 +11,30 @@ def write_to_file(path, content):
     with open(path, 'w', encoding='utf8') as f:
         f.write(content)
 
+
 def create_directory(path):
     cartella = os.path.dirname(path)
     if not os.path.exists(cartella):
         os.makedirs(cartella)
 
+
+def get_markdown_pages():
+    pages = {}
+    file_path = 'pages/'
+
+    for md_file in os.listdir(file_path):
+        md_file_path = os.path.join(file_path, md_file)
+
+        # if it's not a directory, read it
+        if not os.path.isdir(md_file_path):
+            with open(md_file_path, 'r') as f:
+                pages[md_file] = markdown(f.read(), extras=['metadata'])
+
+    return pages
+
+
 def get_markdown_posts():
     posts = {}
-
     file_path = 'content/'
 
     for md_file in os.listdir(file_path):
@@ -32,11 +48,25 @@ def get_markdown_posts():
     return posts
 
 
-def articles(posts, post_template):
-    for post in posts:
-        post_metadata = posts[post].metadata
+def render_pages(page_list, page_template):
+    for p in page_list:
+        page_metadata = page_list[p].metadata
+        page_data = {
+            'content': page_list[p],
+            'slug': page_metadata['slug'],
+            'title': page_metadata['title'],
+        }
+        page_html_content = page_template.render(page=page_data)
+        page_file_path = 'output/pages/{slug}.html'.format(slug=page_metadata['slug'])
+        create_directory(page_file_path)
+        write_to_file(page_file_path, page_html_content)
+
+
+def render_articles(posts, post_template):
+    for p in posts:
+        post_metadata = posts[p].metadata
         post_data = {
-            'content': posts[post],
+            'content': posts[p],
             'slug': post_metadata['slug'],
             'title': post_metadata['title'],
             'summary': post_metadata['summary'],
@@ -47,6 +77,7 @@ def articles(posts, post_template):
         post_file_path = 'output/posts/{slug}.html'.format(slug=post_metadata['slug'])
         create_directory(post_file_path)
         write_to_file(post_file_path, post_html_content)
+
 
 """
 Collect metadata of all the posts
@@ -96,13 +127,17 @@ def main(sec):
     # create directory structure
     create_directory('output/pages')
 
-    sections = ['articles']
+    sections = ['articles', 'pages']
     for section in sections:
         if section == 'articles':
             posts = get_markdown_posts()
             post_template = env.get_template('article.html')
             index(posts)
-            articles(posts, post_template)
+            render_articles(posts, post_template)
+        elif section == 'pages':
+            pages = get_markdown_pages()
+            page_template = env.get_template('page.html')
+            render_pages(pages, page_template)
         else:
             print("This section does not exist")
 

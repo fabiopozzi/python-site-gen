@@ -1,13 +1,5 @@
 {% extends "base.html" %}
 
-{% block sidebar %}
-<li class="nav-item">
-    <a class="pure-button" href="/pages/chi_sono.html">Chi sono</a>
-</li>
-<li class="nav-item">
-    <a class="pure-button" href="/pages/bici.html">Bici</a>
-</li>
-{% endblock %}
 {% block content %}
 <div>
     <!-- A wrapper for all the blog posts -->
@@ -16,7 +8,7 @@
         {% for post in posts %}
         <section class="post">
             <header class="post-header">
-                <h2 class="post-title">{{ post.title }}</h2>
+                <h2 class="post-title"><a href="/posts/{{post.slug}}.html">{{ post.title }}</a></h2>
                 <h5 class="post-meta">{{ post.date }}</h5>
             </header>
             <div class="post-description">

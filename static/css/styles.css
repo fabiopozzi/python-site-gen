@@ -1,8 +1,23 @@
+.wrapper {
+    display: flex;
+    width: 100%;
+}
+
 #sidebar {
-    min-width: 250px;
-    max-width: 250px;
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 999;
     background: #0D3055;
     color: #fff;
+    transition: all 0.3s;
+}
+
+#sidebar .sidebar-header,
+#sidebar .sidebar-buttons {
+    padding: 20px;
 }
 
 .logo {
@@ -12,4 +27,21 @@
 
 .motto {
     font-family: Dejavu Sans;
+    font-size: 0.7em;
+}
+
+ul.social {
+  list-style: none;
+  display: inline;
+  margin-left: 0 !important;
+  padding: 0;
+}
+
+ul.social li {
+  display: inline;
+  margin: 0 5px;
+}
+
+ul.social li a {
+  color: #fff;
 }

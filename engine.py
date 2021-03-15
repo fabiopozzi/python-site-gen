@@ -118,7 +118,7 @@ def index_bici():
     html_content = bici_template.render(listaTracce=lista_tracce)
     write_to_file('output/pages/bici.html', html_content)
 
-def main(sec):
+def main():
     # copy static files
     copy_tree('static/css', 'output/css')
     copy_tree('static/img', 'output/img')
@@ -127,18 +127,15 @@ def main(sec):
     # create directory structure
     create_directory('output/pages')
 
-    sections = ['articles', 'pages']
-    for section in sections:
-        if section == 'articles':
-            posts = get_markdown_posts()
-            post_template = env.get_template('article.html')
-            index(posts)
-            render_articles(posts, post_template)
-        elif section == 'pages':
-            pages = get_markdown_pages()
-            page_template = env.get_template('page.html')
-            render_pages(pages, page_template)
-        else:
-            print("This section does not exist")
+    # render posts
+    posts = get_markdown_posts()
+    post_template = env.get_template('article.html')
+    index(posts)
+    render_articles(posts, post_template)
+
+    # render pages
+    pages = get_markdown_pages()
+    page_template = env.get_template('page.html')
+    render_pages(pages, page_template)
 
     index_bici()

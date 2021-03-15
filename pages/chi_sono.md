@@ -1,12 +1,12 @@
 title: Chi sono
 slug: chi-sono
 
-Brianzolo di nascita, novarese di adozione da qualche anno. Laureato al Politecnico di Milano nel 2011.
+Brianzolo di nascita, novarese di adozione da qualche anno. Laureato al <a href="https://www.polimi.it/">PoliMI</a> nel 2011.
 
 Dopo una esperienza di alcuni anni come consulente in Magneti Marelli Motorsport ora insegno informatica a studenti delle scuole superiori
 e tengo corsi di programmazione.
 
-Uso <a href="linux.html">Linux</a> dal 2004, Mac OS dal 2006, Windows solo se costretto.
+Uso <a href="https://www.kernel.org/">Linux</a> dal 2004, Mac OS dal 2006, Windows solo se costretto.
 
 Nel tempo libero amo viaggiare in bici, da solo oppure in compagnia, lo trovo il miglior modo di visitare il mondo.
 Non è troppo lento da impedirmi di visitare luoghi anche distanti dal luogo di partenza, ma nemmeno troppo veloce e frenetico, così da potersi godere il viaggio.

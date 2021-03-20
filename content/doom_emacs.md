@@ -19,15 +19,15 @@ Ultima caratteristica importante: il framework si occupa di gestire l&#8217;aggi
 
 Questo significa che avremo a disposizione molte funzionalità in più rispetto all&#8217;editor base, con anche una configurazione di base ragionata e curata.
 
-Tra i plugin disponibili quelli che uso con più soddisfazione e che valgono la fatica dell'installazione sono:
+Tra i plugin disponibili quelli che uso con più soddisfazione e che valgono il tempo dedicato al setup sono:
 
 * <strong>evil-mode</strong>: permette di usare i keybindings di <a href="https://www.vim.org">vim</a> al posto dei classici di emacs
 * <strong><a href="https://orgmode.org">org-mode</a></strong>: ci permette di organizzare appunti, documenti o liste di attività di ogni genere tramite documenti in formato testuale. Difficile riassumere in poche parole quanto possa essere utile.
 * <strong>magit</strong>: una interfaccia per <a href="https://git-scm.com">git</a> completa e perfettamente integrata con l'editor
-* <strong>lsp</strong>: permette di integrare in Emacs il <a href="https://github.com/Microsoft/language-server-protocol/">Language Server Protocol</a> fornendo quindi completamento automatico e documentazione inline per molti linguaggi di programmazione
+* <strong><a href="https://emacs-lsp.github.io/lsp-mode/">lsp</a></strong>: permette di integrare in Emacs il <a href="https://github.com/Microsoft/language-server-protocol/">Language Server Protocol</a> fornendo quindi completamento automatico e documentazione inline per molti linguaggi di programmazione
 
 Da vecchio utente <a href="https://www.vim.org">Vim</a> ho trovato uno strumento potente e più integrato, pur mantenendo la possibilità di editing modale che ho sempre trovato geniale.
 
 Questo mi ha anche permesso di iniziare ad apprezzare <a href="https://orgmode.org">org-mode</a> per la gestione degli appunti e della pianificazione delle mie attività.
 
-Anche la possibilità di separare i file aperti in "workspace" permette di contestualizzare i file aperti: possiamo avere un workspace per ogni progetto e quindi passare facilmente da un progetto ad un altro, oppure tra un contesto d'uso ed un altro.
+Anche la possibilità di separare i file aperti in "workspaces" permette di contestualizzare i file aperti: possiamo avere un workspace per ogni progetto e quindi passare facilmente da un progetto ad un altro, oppure tra un contesto d'uso ed un altro.

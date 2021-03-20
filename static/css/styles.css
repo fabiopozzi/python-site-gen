@@ -1,3 +1,9 @@
+/* custom CSS config */
+
+p {
+  line-height: 1;
+}
+
 .wrapper {
     display: flex;
     width: 100%;
@@ -52,4 +58,8 @@ ul.social li a {
     margin-top: 50px;
     float: left;
     margin-left: 10px;
+}
+
+.post-description {
+  padding-top: 30px;
 }

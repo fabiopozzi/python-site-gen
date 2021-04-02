@@ -3,12 +3,14 @@ In questo repository sto sperimentando la creazione di un generatore di siti sta
 * minimalista
 * adatto alle mie esigenze
 
-Il templating delle pagine è basato solo su [Jinja](https://jinja.palletsprojects.com).
+Il templating delle pagine è basato su [Jinja](https://jinja.palletsprojects.com).
+
 Il formato dei contenuti è [markdown](http://daringfireball.net/projects/markdown).
+
 In questo modo posso disaccoppiare lo stile e la struttura dei vari elementi dai contenuti che vado a scrivere.
-Mi sono affidato al classico [Bootstrap](https://getbootstrap.com) per creare un semplice layout a due colonne.
-Per quanto riguarda la visualizzazione delle tracce GPX sto facendo uso di [LeafletJS](https://leafletjs.com) e [OpenstreetMap](https://www.openstreetmap.org) convertendo
-le tracce GPX in formato [GeoJSON](https://geojson.org) che viene poi visualizzato nelle pagine.
+
+Mi sono affidato ad un layout ultra semplice basato su [Pure](https://purecss.io/) per creare un semplice layout a due colonne.
+Per quanto riguarda la visualizzazione delle tracce GPX sto facendo uso di [LeafletJS](https://leafletjs.com) e [OpenstreetMap](https://www.openstreetmap.org) convertendo le tracce GPX in formato [GeoJSON](https://geojson.org) che viene poi visualizzato nelle pagine.
 Ogni traccia e' descritta da un file JSON in cui sono inseriti alcuni metadati quali ad esempio:
 - lunghezza traccia
 - dislivello positivo

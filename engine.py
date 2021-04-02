@@ -28,7 +28,7 @@ def get_markdown_pages():
         # if it's not a directory, read it
         if not os.path.isdir(md_file_path):
             with open(md_file_path, 'r') as f:
-                pages[md_file] = markdown(f.read(), extras=['metadata'])
+                pages[md_file] = markdown(f.read(), extras=['metadata', 'fenced-code-blocks'])
 
     return pages
 
@@ -43,7 +43,7 @@ def get_markdown_posts():
         # if it's not a directory, read it
         if not os.path.isdir(md_file_path):
             with open(md_file_path, 'r') as f:
-                posts[md_file] = markdown(f.read(), extras=['metadata'])
+                posts[md_file] = markdown(f.read(), extras=['metadata', 'fenced-code-blocks'])
 
     return posts
 

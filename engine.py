@@ -44,7 +44,6 @@ def get_markdown_posts():
         if not os.path.isdir(md_file_path):
             with open(md_file_path, 'r') as f:
                 posts[md_file] = markdown(f.read(), extras=['metadata', 'fenced-code-blocks'])
-
     return posts
 
 
@@ -79,18 +78,30 @@ def render_articles(posts, post_template):
         write_to_file(post_file_path, post_html_content)
 
 
+
+"""
+Extract datetime from metadata object.
+To be used for sorting posts by date
+"""
+def per_data(valore):
+    d = datetime.strptime(valore['date'], "%d-%m-%Y")
+    return d
+
+
 """
 Collect metadata of all the posts
-for home page and sort them in reversed order
+for home page and sort them by date
 
 @param:
 POSTS => Dictionary
 """
 def get_posts_metadata(POSTS):
     posts_metadata = []
-    for k,v in sorted(POSTS.items(), reverse=True):
+    for k,v in POSTS.items():
         posts_metadata.append(v.metadata)
-    return posts_metadata
+
+    sorted_posts_metadata = sorted(posts_metadata, key=per_data, reverse=True)
+    return sorted_posts_metadata
 
 """
 @params:

@@ -1,11 +1,12 @@
 <!doctype html>
 <html lang="it">
     <head>
-        {% block head %}
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="Fabio Pozzi personal web corner">
         <title>Fabio Pozzi</title>
+        {% block altricss %}
+        {% endblock %}
         <link rel="stylesheet" href="/css/pure-min.css">
         <link rel="stylesheet" href="/css/grids-responsive-min.css">
         <link rel="stylesheet" href="/css/styles.css">
@@ -13,7 +14,6 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <script data-goatcounter="https://fabiopozzi.goatcounter.com/count"
                 async src="//gc.zgo.at/count.js"></script>
-        {% endblock %}
     </head>
   <body>
       {% block navbar %}
@@ -50,5 +50,6 @@
       <div class="content pure-u-1 pure-u-md-3-4">
           {% block content %}{% endblock %}
       </div>
+      {% block jscode %}{% endblock %}
   </body>
 </html>

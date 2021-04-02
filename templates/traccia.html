@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block altricss %}
+<link type="text/css" rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<link rel="stylesheet" href="/css/bici.css">
+{% endblock %}
+
+{% block content %}
+<div>
+    <!-- A wrapper for all the blog posts -->
+    <div class="posts">
+        <section class="post">
+            <div class="post-description">
+                <h1 class="track-title">{{traccia.nome}}</h1>
+                <div id="map"> </div>
+                <ul>
+                    <li>lunghezza in km: {{traccia.distanza}}</li>
+                    <li>velocita' media: {{traccia.media}}</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+</div>
+{% endblock %}
+
+{% block jscode %}
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet-src.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-gpx/1.4.0/gpx.min.js"></script>
+<script>
+ var map = new L.Map('map', {
+     layers: [
+         new L.TileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+                         { 'attribution': 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>'})
+     ],
+     center: [0, 0],
+     zoom: 0
+ });
+ var gpx = 'https://fabiopozzi.net/gpx/{{traccia.nome_file}}.gpx';
+
+ new L.GPX(gpx, {
+     async: true,
+     marker_options: {
+         startIconUrl: '/img/pin-icon-start.png',
+         endIconUrl: '/img/pin-icon-end.png',
+         shadowUrl: '/img/pin-shadow.png'
+     }
+ }).on('loaded', function (e) {
+     map.fitBounds(e.target.getBounds());
+ }).addTo(map);
+</script>
+{% endblock %}

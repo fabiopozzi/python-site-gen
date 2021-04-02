@@ -57,7 +57,6 @@ def render_pages(page_list, page_template):
         }
         page_html_content = page_template.render(page=page_data)
         page_file_path = 'output/pages/{slug}.html'.format(slug=page_metadata['slug'])
-        create_directory(page_file_path)
         write_to_file(page_file_path, page_html_content)
 
 
@@ -74,7 +73,6 @@ def render_articles(posts, post_template):
         }
         post_html_content = post_template.render(post=post_data)
         post_file_path = 'output/posts/{slug}.html'.format(slug=post_metadata['slug'])
-        create_directory(post_file_path)
         write_to_file(post_file_path, post_html_content)
 
 
@@ -118,6 +116,7 @@ def index(POSTS):
 
 def index_bici():
     bici_template = env.get_template('index_bici.html')
+    track_template = env.get_template('traccia.html')
     # per ogni file nella directory track_data
     track_dir = 'track_data/'
     lista_tracce = []
@@ -125,7 +124,13 @@ def index_bici():
         track_path = os.path.join(track_dir, track_file)
         with open(track_path, 'r') as f:
             data = json.load(f)
+            data['link'] = '/pages/bici/tracce/' + data['nome_file'] + '.html'
+            track_path = 'output/pages/bici/tracce/' + data['nome_file'] + '.html'
             lista_tracce.append(data)
+            # render track page
+            html_content = track_template.render(traccia=data)
+            write_to_file(track_path, html_content)
+
     html_content = bici_template.render(listaTracce=lista_tracce)
     write_to_file('output/pages/bici.html', html_content)
 
@@ -133,10 +138,14 @@ def main():
     # copy static files
     copy_tree('static/css', 'output/css')
     copy_tree('static/img', 'output/img')
+    copy_tree('static/gpx', 'output/gpx')
     shutil.copyfile('static/favicon.ico', 'output/favicon.ico')
 
     # create directory structure
-    create_directory('output/pages')
+    create_directory('output/pages/')
+    create_directory('output/posts/')
+    create_directory('output/pages/bici/')
+    create_directory('output/pages/bici/tracce/')
 
     # render posts
     posts = get_markdown_posts()
@@ -149,4 +158,5 @@ def main():
     page_template = env.get_template('page.html')
     render_pages(pages, page_template)
 
+    # render tracks
     index_bici()

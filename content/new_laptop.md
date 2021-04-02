@@ -19,13 +19,13 @@ Stiamo parlando di una CPU a 7nm, con 8 core / 16 threads e un TDP di 15W.
 
 Sfruttando una promozione Lenovo ho acquistato la versione con 16GB di RAM, 1TB di SSD ad un prezzo onestissimo.
 
-Il primo passo una volta arrivato a casa è stato quello di installare GNU/linux al posto dell'onnipresente windows.
+Il primo passo una volta arrivato a casa è stato quello di installare GNU/linux al posto di Windows 10.
 
-La scelta è ricaduta su <a href="https://www.debian.org/">Debian stable</a>: sono disposto a rinunciare alle ultime feature in cambio di una distribuzione affidabile testata e robusta.
+Ho deciso di tornare a <a href="https://www.debian.org/">Debian stable</a> dopo aver usato per anni <a href="https://archlinux.org/">ArchLinux</a>: sono disposto a rinunciare alle ultime feature in cambio di una distribuzione stabile, affidabile e robusta.
 
 Cerco di tenere aggiornata questa pagina con tutti i dettagli dell'installazione.
 
-Il T14s non dispone di una porta ethernet, al tempo stesso l'installer Debian non supporta la scheda Intel AX200 sia perchè recente, sia perchè il firmware non è free-software.
+Il T14s non dispone di una porta ethernet, al tempo stesso l'installer di Debian stable non supporta la scheda Intel AX200 sia perchè recente, sia perchè il firmware non è free-software.
 
 Dopo qualche lungo ma infruttuoso tentativo di copiare a mano i files necessari a far rilevare la scheda intel ho deciso di fare "a modo mio".
 Ho quindi dovuto rispolverare la mia buon vecchia scheda WiFi USB Alfa che è sufficientemente datata da esser riconosciuta anche dall'installer.
@@ -34,3 +34,5 @@ A quel punto l'installazione è andata piuttosto liscia.
 
 Ho optato per una installazione su LVM cifrato: tenetevi una partizione di boot grande QUANTO la RAM disponibile o avrete problemi nel caso decideste di voler ibernare
 il sistema.
+
+

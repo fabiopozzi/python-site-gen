@@ -1,0 +1,18 @@
+/* ----------------------------------------------------------------
+	Custom CSS
+
+	Add all your Custom Styled CSS here for New Styles or
+	Overwriting Default Theme Styles for Better Handling Updates
+-----------------------------------------------------------------*/
+
+.section {
+    background-color: white;
+    padding: 0px;
+}
+
+.img-articolo {
+    max-width:300px;
+    max-height:180px;
+    width: auto;
+    height: auto;
+}

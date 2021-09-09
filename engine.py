@@ -69,7 +69,8 @@ def render_articles(posts, post_template):
             'title': post_metadata['title'],
             'summary': post_metadata['summary'],
             'category': post_metadata['category'],
-            'date': post_metadata['date']
+            'date': post_metadata['date'],
+            'image_url': post_metadata['image_url']
         }
         post_html_content = post_template.render(post=post_data)
         post_file_path = 'output/posts/{slug}.html'.format(slug=post_metadata['slug'])
@@ -139,6 +140,7 @@ def main():
     copy_tree('static/css', 'output/css')
     copy_tree('static/img', 'output/img')
     copy_tree('static/gpx', 'output/gpx')
+    copy_tree('static/js', 'output/js')
     shutil.copyfile('static/favicon.ico', 'output/favicon.ico')
 
     # create directory structure

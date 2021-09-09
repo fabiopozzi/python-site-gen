@@ -2,6 +2,7 @@ title: Doom Emacs
 date: 17-09-2020
 slug: doom-emacs
 category: emacs
+image_url: doom-emacs.jpg
 summary: Ormai da qualche mese ho iniziato ad usare <a href="https://github.com/hlissner/doom-emacs">Doom Emacs</a>, un framework di configurazione per l&#8217;editor <a href="https://www.gnu.org/software/emacs/">GNU Emacs</a>
 
 Ormai da qualche mese ho iniziato ad usare <a href="https://github.com/hlissner/doom-emacs">Doom Emacs</a>, un framework di configurazione per <a href="https://www.gnu.org/software/emacs/">GNU Emacs</a>.

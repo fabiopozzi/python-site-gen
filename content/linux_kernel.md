@@ -2,6 +2,7 @@ title: Compilare il kernel linux
 date: 02-04-2021
 slug: kernel-build
 category: linux
+image_url: tux.svg
 summary: Mettiamo di voler compilare "a mano" una versione del kernel linux per poi installarla. Vediamo come fare.
 
 ## 1: Ottenere i sorgenti del kernel 

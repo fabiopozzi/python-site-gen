@@ -2,6 +2,7 @@ title:  Soluzione stack4 dei Protostar exploit exercises
 date:   13-01-2020
 slug:   protostar-stack4
 category: security
+image_url: protostar.png
 summary: Proviamo a risolvere uno degli exploit exercises presenti nella VM [Protostar](https://www.vulnhub.com/entry/exploit-exercises-protostar-v2,32/)
 
 [Protostar](https://www.vulnhub.com/entry/exploit-exercises-protostar-v2,32/) è una Virtual Machine appositamente sviluppata per permettere di imparare a sfruttare diversi tipi di vulnerabilità.

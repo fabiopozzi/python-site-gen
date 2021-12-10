@@ -24,4 +24,10 @@ La struttura del sito sarà creata in base alla suddivisione in cartelle, ma sen
 
 Le statistiche degli accessi web sono raccolte grazie a [Goatcount](https://www.goatcounter.com) una piattatorma open source e meno invasiva degli altri servizi di analytics.
 
+## Note
 
+### Generazione stile code highilighting
+Fatto con pygmentize
+```
+pygmentize -S default -f html -a .codehilite > codehighlight.css
+```

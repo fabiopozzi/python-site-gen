@@ -18,11 +18,12 @@
 	<link rel="stylesheet" href="/css/animate.css" type="text/css" />
 	<link rel="stylesheet" href="/css/magnific-popup.css" type="text/css" />
 
+  {% block altricss %}{% endblock %}
 	<link rel="stylesheet" href="/css/custom.css" type="text/css" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script data-goatcounter="https://fabiopozzi.goatcounter.com/count"
-                async src="//gc.zgo.at/count.js"></script>
-	<!-- Document Title
+  <script data-goatcounter="https://fabiopozzi.goatcounter.com/count"
+          async src="//gc.zgo.at/count.js"></script>
+  <!-- Document Title
 	============================================= -->
         <title>Fabio Pozzi personal website</title>
 
@@ -49,7 +50,7 @@
 
 							<ul class="menu-container">
 								<li class="menu-item">
-									<a class="menu-link" href="index.html"><div>Home</div></a>
+									<a class="menu-link" href="/index.html"><div>Home</div></a>
                                 </li>
                                 <li class="menu-item">
                                     <a class="menu-link" href="/pages/chi-sono.html"><div>Chi sono</div></a>
@@ -69,12 +70,10 @@
 		<!-- Content
 		============================================= -->
 		<section id="content">
-			<div class="content-wrap">
 				<div class="container">
                 {% block content %}{% endblock %}
 
 				</div>
-			</div>
 		</section><!-- #content end -->
 
 		<!-- Footer
@@ -88,18 +87,18 @@
                     <div class="row col-mb-30">
 
                         <div class="col-md-6 text-center text-md-start">
-                            Copyright &copy; 2021 Fabio Pozzi.<br>
+                            Ars longa, vita brevis.<br> &copy; 2021 Fabio Pozzi.
                         </div>
 
                         <div class="col-md-6 text-center text-md-end">
                             <div class="d-flex justify-content-center justify-content-md-end">
 
-                                <a href="#" class="social-icon si-small si-borderless si-github">
+                                <a href="https://github.com/fabiopozzi/" class="social-icon si-small si-borderless si-github">
                                     <i class="icon-github"></i>
                                     <i class="icon-github"></i>
                                 </a>
 
-                                <a href="#" class="social-icon si-small si-borderless si-linkedin">
+                                <a href="https://www.linkedin.com/in/fpozzi/" class="social-icon si-small si-borderless si-linkedin">
                                     <i class="icon-linkedin"></i>
                                     <i class="icon-linkedin"></i>
                                 </a>
@@ -107,7 +106,7 @@
 
                             <div class="clear"></div>
 
-                            <i class="icon-envelope2"></i> fabio(at)fabiopozzi(punto)net <span class="middot">&middot;</span>
+                            <span class="middot">&middot;</span><i class="icon-envelope2"></i> fabio(at)fabiopozzi(punto)net <span class="middot">&middot;</span>
                         </div>
 
                     </div>
@@ -126,10 +125,10 @@
 	============================================= -->
 	<script src="/js/jquery.js"></script>
 	<script src="/js/plugins.min.js"></script>
-    {% block jscode %}{% endblock %}
-	<!-- Footer Scripts
+  <!-- Footer Scripts
 	============================================= -->
 	<script src="/js/functions.js"></script>
+  {% block jscode %}{% endblock %}
 
   </body>
 </html>

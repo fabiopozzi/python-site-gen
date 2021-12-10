@@ -21,6 +21,9 @@ def create_directory(path):
 def get_markdown_pages():
     pages = {}
     file_path = 'pages/'
+    e = ['code-friendly', 'cuddled-lists', 'fenced-code-blocks', 'tables',
+            'footnotes', 'smarty-pants', 'numbering', 'tables', 'strike',
+            'spoiler']
 
     for md_file in os.listdir(file_path):
         md_file_path = os.path.join(file_path, md_file)
@@ -28,7 +31,7 @@ def get_markdown_pages():
         # if it's not a directory, read it
         if not os.path.isdir(md_file_path):
             with open(md_file_path, 'r') as f:
-                pages[md_file] = markdown(f.read(), extras=['metadata', 'fenced-code-blocks'])
+                pages[md_file] = markdown(f.read(), extras=e)
 
     return pages
 
@@ -50,31 +53,41 @@ def get_markdown_posts():
 def render_pages(page_list, page_template):
     for p in page_list:
         page_metadata = page_list[p].metadata
-        page_data = {
-            'content': page_list[p],
-            'slug': page_metadata['slug'],
-            'title': page_metadata['title'],
-        }
-        page_html_content = page_template.render(page=page_data)
-        page_file_path = 'output/pages/{slug}.html'.format(slug=page_metadata['slug'])
-        write_to_file(page_file_path, page_html_content)
+        if page_metadata is None:
+            print("metadata vuoti")
+        else:
+            page_data = {
+                'content': page_list[p],
+                'slug': page_metadata['slug'],
+                'title': page_metadata['title'],
+            }
+            page_html_content = page_template.render(page=page_data)
+            page_file_path = 'output/pages/{slug}.html'.format(slug=page_metadata['slug'])
+            write_to_file(page_file_path, page_html_content)
 
 
 def render_articles(posts, post_template):
     for p in posts:
         post_metadata = posts[p].metadata
-        post_data = {
-            'content': posts[p],
-            'slug': post_metadata['slug'],
-            'title': post_metadata['title'],
-            'summary': post_metadata['summary'],
-            'category': post_metadata['category'],
-            'date': post_metadata['date'],
-            'image_url': post_metadata['image_url']
-        }
-        post_html_content = post_template.render(post=post_data)
-        post_file_path = 'output/posts/{slug}.html'.format(slug=post_metadata['slug'])
-        write_to_file(post_file_path, post_html_content)
+        if post_metadata is None:
+            print("metadata vuoti")
+        else:
+            try:
+                post_data = {
+                    'content': posts[p],
+                    'slug': post_metadata['slug'],
+                    'title': post_metadata['title'],
+                    'summary': post_metadata['summary'],
+                    'category': post_metadata['category'],
+                    'date': post_metadata['date'],
+                    'image_url': post_metadata['image_url']
+                }
+            except TypeError:
+                print(post_metadata)
+                continue
+            post_html_content = post_template.render(post=post_data)
+            post_file_path = 'output/posts/{slug}.html'.format(slug=post_metadata['slug'])
+            write_to_file(post_file_path, post_html_content)
 
 
 
